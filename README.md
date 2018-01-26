@@ -16,4 +16,4 @@
 ~~此机制直接导致我[之前的签到脚本](https://gist.github.com/isayme/5efc1bf611da29a3121c)无效, 所以才有了今天的版本.~~
 
 # 联系我 #
-`email`: isaymeorg # gmail.com
+fork from https://github.com/isayme/smzdm
