@@ -6,9 +6,11 @@ import json
 import sys
 import requests
 import re
+import random
+import time
 
-SMZDM_USERNAME = os.getenv('SMZDM_DAILY_USERNAME') or '' # username or email
-SMZDM_PASSWORD = os.getenv('SMZDM_DAILY_PASSWORD') or '' # password
+SMZDM_USERNAME = os.getenv('SMZDM_DAILY_USERNAME') or '15088603619' # username or email
+SMZDM_PASSWORD = os.getenv('SMZDM_DAILY_PASSWORD') or '2684005abc' # password
 
 class SMZDMDailyException(Exception):
     def __init__(self, req):
@@ -50,11 +52,15 @@ class SMZDMDaily(object):
 
         return jdata
 
+def gen_random_second():
+    return int(random.random()) * 60 + int(random.random())
+
 if __name__ == '__main__':
     if SMZDM_USERNAME is '' or SMZDM_PASSWORD is '':
         print('SMZDM_USERNAME and SMZDM_PASSWORD required')
         sys.exit()
     try:
+        time.sleep(gen_random_second())
         smzdm = SMZDMDaily(SMZDM_USERNAME, SMZDM_PASSWORD)
         result = smzdm.checkin()
     except SMZDMDailyException as e:
